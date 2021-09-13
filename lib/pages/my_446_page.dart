@@ -1,7 +1,7 @@
 import 'dart:async';
 
 import 'package:candlestick_chart_flutter/Controllers/buttons_controller.dart';
-import 'package:candlestick_chart_flutter/Controllers/fetch_candles.dart';
+import 'package:candlestick_chart_flutter/Controllers/my_446_controller.dart';
 import 'package:candlestick_chart_flutter/candlestick_custom/canclesticks_custom.dart';
 import 'package:candlestick_chart_flutter/shared/color_app.dart';
 import 'package:candlestick_chart_flutter/shared/image_app.dart';
@@ -9,7 +9,6 @@ import 'package:candlestick_chart_flutter/shared/text_app.dart';
 import 'package:candlestick_chart_flutter/widgets/toggle_tab_switch_widget.dart';
 import 'package:candlesticks/candlesticks.dart';
 import 'package:flutter/material.dart';
-import 'package:intl/intl.dart';
 
 class My446Page extends StatefulWidget {
   @override
@@ -17,23 +16,25 @@ class My446Page extends StatefulWidget {
 }
 
 class _My446PageState extends State<My446Page> {
+  My446Controller my446Controller = My446Controller();
+
   List<Candle> candles = [];
 
   Timer? timer;
 
-  int refreshTime = 10;
+  int refreshTime = 60; // seconds
   DateTime stockExchangeOpen = DateTime.parse('1900-01-01 10:00');
-  DateTime stockExchangeClose = DateTime.parse('1900-01-01 17:00');
+  DateTime stockExchangeClose = DateTime.parse('1900-01-01 18:00');
 
   void binanceFetch() {
-    fetchCandles().then(
-      (value) => setState(
-        () {
-          candles = value;
-          // print("refresh - ${DateTime.now()}");
-        },
-      ),
-    );
+    my446Controller.fetchCandles().then(
+          (value) => setState(
+            () {
+              candles = value;
+              // print("refresh - ${DateTime.now()}");
+            },
+          ),
+        );
   }
 
   @override
@@ -43,19 +44,11 @@ class _My446PageState extends State<My446Page> {
     binanceFetch();
 
     timer = Timer.periodic(Duration(seconds: refreshTime), (Timer t) {
-      DateTime now = DateTime.now();
-      String day = DateFormat('EEEE').format(now);
-
-      if (day != 'Saturday' && day != 'Sunday') {
-        int nowSum = now.hour * 100 + now.minute;
-        int stockExchangeOpenSum =
-            stockExchangeOpen.hour * 100 + stockExchangeOpen.minute;
-        int stockExchangeCloseSum =
-            stockExchangeClose.hour * 100 + stockExchangeClose.minute;
-
-        if (nowSum >= stockExchangeOpenSum && nowSum <= stockExchangeCloseSum) {
-          binanceFetch();
-        }
+      if (my446Controller.refreshStockQuote(
+        stockExchangeOpen: stockExchangeOpen,
+        stockExchangeClose: stockExchangeClose,
+      )) {
+        binanceFetch();
       }
     });
   }
