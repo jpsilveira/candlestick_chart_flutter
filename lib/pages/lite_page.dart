@@ -3,7 +3,7 @@ import 'package:candlestick_chart_flutter/shared/color_app.dart';
 import 'package:candlestick_chart_flutter/widgets/academy_widget.dart';
 import 'package:candlestick_chart_flutter/widgets/assets_list_assets.dart';
 import 'package:candlestick_chart_flutter/widgets/balance_widget.dart';
-import 'package:candlestick_chart_flutter/widgets/bottom_bar_widget.dart';
+import 'package:candlestick_chart_flutter/widgets/bottom_bar_lite_widget.dart';
 import 'package:candlestick_chart_flutter/widgets/index_chart_widget.dart';
 import 'package:candlestick_chart_flutter/widgets/index_widget.dart';
 import 'package:candlestick_chart_flutter/widgets/most_read_widget.dart';
@@ -61,7 +61,7 @@ class _LitePageState extends State<LitePage> {
                         }),
                     SizedBox(height: 39),
                     MostReadWidget(),
-                    BottomBarWidget(),
+                    BottomBarLiteWidget(),
                     SizedBox(height: 26),
                   ],
                 ),

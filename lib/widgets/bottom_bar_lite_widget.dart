@@ -3,8 +3,8 @@ import 'package:candlestick_chart_flutter/shared/image_app.dart';
 import 'package:candlestick_chart_flutter/shared/text_app.dart';
 import 'package:flutter/material.dart';
 
-class BottomBarWidget extends StatelessWidget {
-  const BottomBarWidget({Key? key}) : super(key: key);
+class BottomBarLiteWidget extends StatelessWidget {
+  const BottomBarLiteWidget({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

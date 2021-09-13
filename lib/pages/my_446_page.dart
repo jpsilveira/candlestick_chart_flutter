@@ -1,12 +1,11 @@
 import 'dart:async';
 
-import 'package:candlestick_chart_flutter/Controllers/buttons_controller.dart';
 import 'package:candlestick_chart_flutter/Controllers/my_446_controller.dart';
-import 'package:candlestick_chart_flutter/candlestick_custom/canclesticks_custom.dart';
 import 'package:candlestick_chart_flutter/shared/color_app.dart';
-import 'package:candlestick_chart_flutter/shared/image_app.dart';
 import 'package:candlestick_chart_flutter/shared/text_app.dart';
-import 'package:candlestick_chart_flutter/widgets/toggle_tab_switch_widget.dart';
+import 'package:candlestick_chart_flutter/widgets/bottom_bar_my_446_widget.dart';
+import 'package:candlestick_chart_flutter/widgets/button_bar_widget.dart';
+import 'package:candlestick_chart_flutter/widgets/candlestick_chart_widget.dart';
 import 'package:candlesticks/candlesticks.dart';
 import 'package:flutter/material.dart';
 
@@ -61,7 +60,7 @@ class _My446PageState extends State<My446Page> {
 
   @override
   Widget build(BuildContext context) {
-    ButtonsController buttonsController = ButtonsController();
+    // ButtonsController buttonsController = ButtonsController();
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.transparent,
@@ -82,30 +81,7 @@ class _My446PageState extends State<My446Page> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-//
-            Container(
-              width: 312,
-              height: 40,
-              child: ToggleTabSwitchWidget(
-                labels: ['Resumo', 'Gráfico', 'Boleto'],
-                percentWidth: 75,
-                height: 40,
-                borderRadius: 100,
-                marginSelected: EdgeInsets.zero,
-                indexSelected: 1,
-                onSelectedIndex: (index) {
-                  buttonsController.selectedIndex(index);
-                },
-                selectedTextStyle: TextApp.bar446TextSelect,
-                selectedBackgroundColors: [
-                  ColorApp.bar446BoxSelected,
-                ],
-                unSelectedTextStyle: TextApp.bar446Text,
-                unSelectedBackgroundColors: [
-                  ColorApp.bar446Box,
-                ],
-              ),
-            ),
+            ButtonBarWidget(),
             Container(
               // color: Colors.yellow,
               height: 88,
@@ -146,86 +122,12 @@ class _My446PageState extends State<My446Page> {
                 ),
               ),
             ),
-            Container(
-              child: AspectRatio(
-                aspectRatio: 0.86,
-                child: CandlesticksCustom(
-                  candles: candles,
-                ),
-              ),
-            ),
+            CandlestickChartWidget(candles: candles),
             Container(
               height: 20,
               color: ColorApp.bgColor446,
             ),
-            Container(
-              color: ColorApp.bgColor446,
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: [
-                  TextButton(
-                    style: TextButton.styleFrom(
-                      padding: EdgeInsets.zero,
-                    ),
-                    onPressed: () {},
-                    child: Image.asset(
-                      ImageApp.iconClock,
-                      color: ColorApp.icon446Color,
-                      width: 16,
-                      height: 16,
-                    ),
-                  ),
-                  TextButton(
-                    style: TextButton.styleFrom(
-                      padding: EdgeInsets.zero,
-                    ),
-                    onPressed: () {},
-                    child: Image.asset(
-                      ImageApp.iconCandlestick,
-                      color: ColorApp.icon446Color,
-                      width: 16,
-                      height: 16,
-                    ),
-                  ),
-                  TextButton(
-                    style: TextButton.styleFrom(
-                      padding: EdgeInsets.zero,
-                    ),
-                    onPressed: () {},
-                    child: Image.asset(
-                      ImageApp.iconChart,
-                      color: ColorApp.icon446Color,
-                      width: 16,
-                      height: 16,
-                    ),
-                  ),
-                  TextButton(
-                    style: TextButton.styleFrom(
-                      padding: EdgeInsets.zero,
-                    ),
-                    onPressed: () {},
-                    child: Image.asset(
-                      ImageApp.iconEdit,
-                      color: ColorApp.icon446Color,
-                      width: 16,
-                      height: 16,
-                    ),
-                  ),
-                  TextButton(
-                    style: TextButton.styleFrom(
-                      padding: EdgeInsets.zero,
-                    ),
-                    onPressed: () {},
-                    child: Image.asset(
-                      ImageApp.iconMoney,
-                      color: ColorApp.icon446Color,
-                      width: 16,
-                      height: 16,
-                    ),
-                  ),
-                ],
-              ),
-            ),
+            BottomBarMy446Widget(),
             Expanded(
               child: Container(
                 color: ColorApp.bgColor446,
