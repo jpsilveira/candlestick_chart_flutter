@@ -9,9 +9,11 @@ import 'chart_custom.dart';
 /// current position and candles width).
 class CandlesticksCustom extends StatefulWidget {
   final List<Candle> candles;
+  final void Function(int)? callLastIndex;
 
   CandlesticksCustom({
     required this.candles,
+    this.callLastIndex,
   });
 
   @override
@@ -102,6 +104,9 @@ class _CandlesticksCustomState extends State<CandlesticksCustom> {
                     index = max(index, -10);
                     index = min(index, widget.candles.length - 1);
                   });
+                  if (widget.callLastIndex != null) {
+                    widget.callLastIndex!(index);
+                  }
                   if (index == lastIndex) return;
                   scrollController.jumpTo((index + 10) * candleWidth);
                 },

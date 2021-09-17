@@ -1,7 +1,7 @@
 import 'package:candlestick_chart_flutter/Controllers/buttons_controller.dart';
 import 'package:candlestick_chart_flutter/shared/color_app.dart';
 import 'package:candlestick_chart_flutter/shared/text_app.dart';
-import 'package:candlestick_chart_flutter/widgets/stock_widget.dart';
+import 'package:candlestick_chart_flutter/widgets/stock_lite_widget.dart';
 import 'package:candlestick_chart_flutter/widgets/toggle_tab_switch_widget.dart';
 import 'package:flutter/material.dart';
 
@@ -52,7 +52,7 @@ class AssetsListWidget extends StatelessWidget {
           ),
           child: Column(
             children: [
-              StockWidget(
+              StockLiteWidget(
                 height: 40,
                 stockAcronym: 'PETR4',
                 stockName: 'Petrobras PN N2',
@@ -62,7 +62,7 @@ class AssetsListWidget extends StatelessWidget {
                 hasDivider: true,
                 go446: false,
               ),
-              StockWidget(
+              StockLiteWidget(
                 height: 40,
                 stockAcronym: 'VALE3',
                 stockName: 'Vale ON NM',
@@ -72,7 +72,7 @@ class AssetsListWidget extends StatelessWidget {
                 hasDivider: true,
                 go446: true,
               ),
-              StockWidget(
+              StockLiteWidget(
                 height: 40,
                 stockAcronym: 'BBAS3',
                 stockName: 'Brasil ON MN',
@@ -82,7 +82,7 @@ class AssetsListWidget extends StatelessWidget {
                 hasDivider: true,
                 go446: false,
               ),
-              StockWidget(
+              StockLiteWidget(
                 height: 40,
                 stockAcronym: 'BBDC4',
                 stockName: 'Bradesco PN n1',
@@ -92,7 +92,7 @@ class AssetsListWidget extends StatelessWidget {
                 hasDivider: true,
                 go446: false,
               ),
-              StockWidget(
+              StockLiteWidget(
                 height: 40,
                 stockAcronym: 'ITUB4',
                 stockName: 'Vale ON MN',
@@ -102,7 +102,7 @@ class AssetsListWidget extends StatelessWidget {
                 hasDivider: true,
                 go446: false,
               ),
-              StockWidget(
+              StockLiteWidget(
                 height: 40,
                 stockAcronym: 'BBAS3',
                 stockName: 'Brasil ON MN',
@@ -112,7 +112,7 @@ class AssetsListWidget extends StatelessWidget {
                 hasDivider: true,
                 go446: false,
               ),
-              StockWidget(
+              StockLiteWidget(
                 height: 40,
                 stockAcronym: 'BBDC4',
                 stockName: 'Bradesco PN n1',

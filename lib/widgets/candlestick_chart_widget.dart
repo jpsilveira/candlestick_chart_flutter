@@ -4,8 +4,13 @@ import 'package:flutter/material.dart';
 
 class CandlestickChartWidget extends StatelessWidget {
   final List<Candle> candles;
-  const CandlestickChartWidget({Key? key, required this.candles})
-      : super(key: key);
+  final void Function(int)? callLastIndex;
+
+  CandlestickChartWidget({
+    Key? key,
+    required this.candles,
+    this.callLastIndex,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -13,6 +18,11 @@ class CandlestickChartWidget extends StatelessWidget {
       aspectRatio: 0.86,
       child: CandlesticksCustom(
         candles: candles,
+        callLastIndex: (int value) {
+          if (callLastIndex != null) {
+            callLastIndex!(value);
+          }
+        },
       ),
     );
   }

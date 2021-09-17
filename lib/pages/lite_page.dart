@@ -1,9 +1,9 @@
-import 'package:candlestick_chart_flutter/Controllers/buttons_controller.dart';
 import 'package:candlestick_chart_flutter/shared/color_app.dart';
 import 'package:candlestick_chart_flutter/widgets/academy_widget.dart';
 import 'package:candlestick_chart_flutter/widgets/assets_list_assets.dart';
 import 'package:candlestick_chart_flutter/widgets/balance_widget.dart';
 import 'package:candlestick_chart_flutter/widgets/bottom_bar_lite_widget.dart';
+import 'package:candlestick_chart_flutter/widgets/head_widget.dart';
 import 'package:candlestick_chart_flutter/widgets/index_chart_widget.dart';
 import 'package:candlestick_chart_flutter/widgets/index_widget.dart';
 import 'package:candlestick_chart_flutter/widgets/most_read_widget.dart';
@@ -11,9 +11,8 @@ import 'package:candlestick_chart_flutter/widgets/pro_account_widget.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-import '../widgets/head_widget.dart';
-
 class LitePage extends StatefulWidget {
+  const LitePage({Key? key}) : super(key: key);
   @override
   _LitePageState createState() => _LitePageState();
 }
@@ -21,8 +20,6 @@ class LitePage extends StatefulWidget {
 class _LitePageState extends State<LitePage> {
   bool eye = false;
   bool evolutionPro = false;
-
-  ButtonsController buttonsController = ButtonsController();
 
   @override
   Widget build(BuildContext context) {

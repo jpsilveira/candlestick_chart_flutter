@@ -3,7 +3,7 @@ import 'package:candlestick_chart_flutter/shared/image_app.dart';
 import 'package:candlestick_chart_flutter/shared/text_app.dart';
 import 'package:flutter/material.dart';
 
-class StockWidget extends StatelessWidget {
+class StockLiteWidget extends StatelessWidget {
   final double height;
   final String stockAcronym;
   final String stockName;
@@ -13,7 +13,7 @@ class StockWidget extends StatelessWidget {
   final bool hasDivider;
   final bool go446;
 
-  const StockWidget({
+  const StockLiteWidget({
     Key? key,
     required this.height,
     required this.stockAcronym,
